@@ -10,24 +10,25 @@ module.exports = {
     var target = (parentAddon || app);
 
     var options = target.options['ember-cli-chartist'] || {};
-    var chartistPath = path.join(target.bowerDirectory, 'chartist', 'dist');
+    var chartistVendorPath = path.join('vendor', 'chartist', 'dist');
+    var chartistNodePath = path.join('node_modules', 'chartist', 'dist');
 
     if (options.useCustomCSS) {
       target.options.sassOptions = target.options.sassOptions || {};
       target.options.sassOptions.includePaths = target.options.sassOptions.includePaths || [];
 
       target.options.sassOptions.includePaths.push(
-        path.join(chartistPath, 'scss')
+        path.join(chartistNodePath, 'scss')
       );
 
       target.options.sassOptions.includePaths.push(
-        path.join(chartistPath, 'scss', 'settings')
+        path.join(chartistNodePath, 'scss', 'settings')
       );
 
     } else {
-      target.import(path.join(chartistPath, 'chartist.min.css'));
+      target.import(path.join(chartistNodePath, 'chartist.min.css'));
     }
 
-    app.import(path.join(chartistPath, 'chartist.js'));
+    app.import(path.join(chartistVendorPath, 'chartist.min.js'));
   }
 };

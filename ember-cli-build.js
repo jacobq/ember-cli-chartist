@@ -1,9 +1,15 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
+    nodeModulesToVendor: [
+      new Funnel('node_modules/chartist', {
+        destDir: 'chartist'
+      })
+    ],
     'ember-cli-chartist': {
       useCustomCSS: true
     }

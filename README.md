@@ -237,7 +237,6 @@ If you'd like to contribute to this project, that would be swell. Here are some 
 
 * `git clone` this repository
 * `npm install`
-* `bower install`
 
 ### Running
 
